@@ -35,8 +35,15 @@ export default (state = INIT_STATE, action) => {
     case actionTypes.EXCHANGE_CHANGED:
       state = {
         ...state,
-        firstInputText: state.secondInputText,
-        secondInputText: state.firstInputText
+        firstInputText: DATA.iHaveText,
+        secondInputText: DATA.iWantText
+      }
+      break;
+    case actionTypes.EXCHANGE_2_CHANGED:
+      state = {
+        ...state,
+        firstInputText: DATA.iWantText,
+        secondInputText: DATA.iHaveText
       }
       break;
     default:

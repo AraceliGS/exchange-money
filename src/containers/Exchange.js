@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 
 import ExchangeComponent from '../components/Exchange';
 
-import {inputTextChanged, outputTextChanged, exchangeChanged} from '../actions/index';
+import {inputTextChanged, outputTextChanged, exchangeChanged, otherExchangeChanged} from '../actions/index';
 
 const ExchangeComponentWithRedux = connect(
   function mapStateToProps(state) {
@@ -11,7 +11,8 @@ const ExchangeComponentWithRedux = connect(
       outputText,
       firstInputText,
       secondInputText,
-      exchange
+      exchange,
+      exchange2
     } = state.AppReducer;
 
     return {
@@ -19,7 +20,8 @@ const ExchangeComponentWithRedux = connect(
       outputText,
       firstText: firstInputText,
       secondText: secondInputText,
-      exchange
+      exchange,
+      exchange2
     };
   },
 
@@ -33,6 +35,9 @@ const ExchangeComponentWithRedux = connect(
       },
       setExchangeChanged(newEvent) {
         dispatch(exchangeChanged(newEvent));
+      },
+      setExchange2Changed(otherEvent) {
+        dispatch(otherExchangeChanged(otherEvent));
       }
     };
   }

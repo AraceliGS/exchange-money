@@ -1,12 +1,15 @@
 import React from 'react';
 
 const Exchange = ({
-  inputText, outputText, firstText,
-  secondText, setInputText, setOutputText, setExchangeChanged
+  inputText, outputText, firstText, secondText, 
+  setInputText, setOutputText, setExchangeChanged, setExchange2Changed
 }) => {
   return (
     <div>
-      <div className="exchange-money-div">
+      <div className="exchange-money-div" onClick={evt => {
+        // console.log(evt.isTrusted)
+        setExchangeChanged(evt.isTrusted);
+      }}>
       <span>{firstText}</span>
       <input 
       value={inputText} 
@@ -15,11 +18,11 @@ const Exchange = ({
       }}
       placeholder="Input"
       /></div>
-      <button onClick={evt => {
-        // console.log(evt.isTrusted)
-        setExchangeChanged(evt.isTrusted);
-      }}>Exchange</button>
-      <div className="exchange-money-div">
+      <button>Exchange</button>
+      <div className="exchange-money-div" onClick={evt => {
+        console.log(evt.isTrusted)
+        setExchange2Changed(evt.isTrusted);
+      }}>
       <span>{secondText}</span>
       <input 
       value={outputText} 
