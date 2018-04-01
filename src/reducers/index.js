@@ -12,7 +12,8 @@ const INIT_STATE = {
   secondInputText: DATA.iWantText,
   inputText: '',
   outputText: '',
-  exchange: false
+  exchange: false,
+  exchange2: false
 }
 
 export default (state = INIT_STATE, action) => {
@@ -32,7 +33,6 @@ export default (state = INIT_STATE, action) => {
       }
       break;
     case actionTypes.EXCHANGE_CHANGED:
-
       state = {
         ...state,
         firstInputText: state.secondInputText,
