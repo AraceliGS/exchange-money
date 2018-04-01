@@ -1,11 +1,15 @@
 import {actionTypes} from '../actions/index';
 
 const DATA = {
-  title: 'Welcome to React'
+  title: 'Welcome to React',
+  iHaveText: 'Tengo',
+  iWantText: 'Quiero'
 }
 
 const INIT_STATE = {
   info: DATA,
+  firstInputText: DATA.iHaveText,
+  secondInputText: DATA.iWantText,
   inputText: '',
   outputText: '',
   exchange: false
@@ -25,6 +29,14 @@ export default (state = INIT_STATE, action) => {
         ...state,
         inputText: action.text * 3.2380,
         outputText: action.text,
+      }
+      break;
+    case actionTypes.EXCHANGE_CHANGED:
+
+      state = {
+        ...state,
+        firstInputText: state.secondInputText,
+        secondInputText: state.firstInputText
       }
       break;
     default:

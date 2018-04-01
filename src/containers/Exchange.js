@@ -9,12 +9,16 @@ const ExchangeComponentWithRedux = connect(
     const {
       inputText,
       outputText,
+      firstInputText,
+      secondInputText,
       exchange
     } = state.AppReducer;
 
     return {
       inputText,
       outputText,
+      firstText: firstInputText,
+      secondText: secondInputText,
       exchange
     };
   },
